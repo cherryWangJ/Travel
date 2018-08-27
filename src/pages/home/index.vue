@@ -1,12 +1,18 @@
 <template>
 <div>
-    Hello world!
+    <Header></Header>
 </div>
 </template>
 
 <script>
-export default {}
+import Header from '@/pages/components/Header'
+export default {
+  components: {
+    Header
+  }
+}
 </script>
 
 <style scoped>
+
 </style>
