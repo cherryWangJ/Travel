@@ -1,17 +1,19 @@
 <template>
-<div>
+  <div>
     <Header></Header>
     <Swiper></Swiper>
-</div>
+    <Icons></Icons>
+  </div>
 </template>
-
 <script>
 import Header from '@/pages/components/Header'
 import Swiper from '@/pages/components/Swiper'
+import Icons from '@/pages/components/Icons'
 export default {
   components: {
     Header,
-    Swiper
+    Swiper,
+    Icons
   }
 }
 </script>
