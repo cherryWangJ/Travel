@@ -6,9 +6,11 @@
         <div class="header-content">
             <input class="iconfont header-input" type="text" :placeholder="icon">
         </div>
-        <div class="header-right">
-            {{this.city}}<span class="iconfont right-icon">&#xe64a;</span>
+        <router-link to="/city">
+            <div class="header-right">
+                {{this.city}}<span class="iconfont right-icon">&#xe64a;</span>
             </div>
+        </router-link>
     </div>
 </template>
 
@@ -57,6 +59,7 @@ input::-webkit-input-placeholder {
     width: 1.24rem;
     float: right;
     text-align: center;
+    color: #ffffff;
 }
 .header-right .right-icon {
     font-size: .24rem;
