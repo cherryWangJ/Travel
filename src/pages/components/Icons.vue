@@ -96,6 +96,7 @@ export default {
     margin-top: .2rem;
     overflow: hidden;
     background-color: #ffffff;
+    margin-bottom: -.2rem;
 }
 .icon-item {
     width: 25%;
