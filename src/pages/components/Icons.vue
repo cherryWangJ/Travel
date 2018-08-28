@@ -1,7 +1,7 @@
 <template>
   <div class="icons">
       <div class="icon-map">
-        <swiper>
+        <swiper :options= "swiperOption">
             <swiper-slide v-for="(page,index) in pages" :key="index">
                 <div class="icon-item" v-for="item in page" :key="item.id">
                     <div class="icon-img">
@@ -11,72 +11,28 @@
                </div>
             </swiper-slide>
         </swiper>
+         <div class="swiper-pagination pagination-sight"  slot="pagination"></div>
       </div>
   </div>
 </template>
 <script>
 export default {
     name: 'index-icons',
+    props: {
+        iconlist: Array
+    },
     data () {
         return {
-            iconList: [
-                {
-                    id: '0001',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                    text: '景点门票'
-            },
-            {
-                    id: '0002',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-                    text: '北京必游'
-            },
-            {
-                    id: '0003',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png',
-                    text: '夏日玩水'
-            },
-            {
-                    id: '0004',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-                    text: '文化古迹'
-            },
-            {
-                    id: '0005',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-                    text: '动植物园'
-            },
-            {
-                    id: '0006',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png',
-                    text: '故宫'
-            },
-            {
-                    id: '0007',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-                    text: '一日游'
-            },
-            {
-                    id: '0008',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/95/8d02011d149bdb02.png',
-                    text: '汽车票'
-            },
-            {
-                    id: '0009',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png',
-                    text: '游乐园'
-            },
-            {
-                    id: '0010',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png',
-                    text: '全部玩乐'
+            swiperOption: {
+                autoplay: false,
+                pagination: '.swiper-pagination'
             }
-            ]
         }
     },
     computed: {
         pages () {
             const pages = []
-            this.iconList.forEach((item, index) => {
+            this.iconlist.forEach((item, index) => {
                 const page = Math.floor(index / 8)
                 if (!pages[page]) {
                     pages[page] = []
@@ -90,13 +46,29 @@ export default {
 </script>
 
 <style scoped>
+.icon-map >>> .swiper-pagination-bullet-active {
+    width: .12rem;
+    height: .12rem;
+    background:rgba(0,175,190,.8)
+    }
+.icon-map >>> .swiper-pagination-bullet {
+    width: .12rem;
+    height: .12rem;
+    margin: 0 .1rem;
+    background:rgba(0,175,190,.8)
+}
+.icon-map >>> .swiper-pagination-bullets {
+    position: absolute;
+    left: 45%;
+    bottom: .2rem;
+}
 .icon-map {
     width: 100%;
-    height: 3.8rem;
-    margin-top: .2rem;
+    height: 3.6rem;
+    margin-top: .1rem;
     overflow: hidden;
     background-color: #ffffff;
-    margin-bottom: -.2rem;
+    position: relative;
 }
 .icon-item {
     width: 25%;

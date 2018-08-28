@@ -1,7 +1,7 @@
 <template>
     <div class="recommend">
         <div class="recommend-title">热门推荐</div>
-        <ul class="recommend-content border-bottom" v-for="item in imgList" :key="item.id">
+        <ul class="recommend-content border-bottom" v-for="item in recommendlist" :key="item.id">
             <li class="content-item">
                 <div class="item-img">
                     <img class="imgWrapper" :src="item.imgUrl" alt="金海湖风景区"/>
@@ -18,36 +18,12 @@
 
 <script>
 export default {
+    name: 'recommend',
+    props: {
+        recommendlist: Array
+    },
     data () {
         return {
-            imgList: [
-                {
-                    id: '0001',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1609/7a/7ae8ee7831836095a3.water.jpg_200x200_36727f69.jpg',
-                    introduce: '金海湖风景区',
-                    price: 24,
-                    place: '平谷区'
-            },
-            {
-                    id: '0002',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_200x200_7690e4cd.jpg',
-                    introduce: '北京欢乐谷',
-                    price: 180,
-                    place: '朝阳区'
-            },
-            {
-                    id: '0003',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
-                    price: 20,
-                    place: '东城区'
-            },
-            {
-                    id: '0004',
-                    imgUrl: 'http://img1.qunarzz.com/sight/p0/201308/08/41150dacc0e3a0c8c8d65eac.jpg_200x200_c62292e9.jpg',
-                    price: 39.9,
-                    place: '西城区'
-            }
-            ]
         }
     }
 }
@@ -55,6 +31,7 @@ export default {
 
 <style scoped>
 .recommend-title {
+    height: .8rem;
     line-height: .8rem;
     background: #eee;
     text-indent: .2rem;

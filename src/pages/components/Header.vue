@@ -7,13 +7,16 @@
             <input class="iconfont header-input" type="text" :placeholder="icon">
         </div>
         <div class="header-right">
-            城市<span class="iconfont right-icon">&#xe64a;</span>
+            {{this.city}}<span class="iconfont right-icon">&#xe64a;</span>
             </div>
     </div>
 </template>
 
 <script>
 export default {
+    props: {
+        city: String
+    },
   data () {
     return {
       icon: '  \ue632 输入城市/景点/游玩主题'
