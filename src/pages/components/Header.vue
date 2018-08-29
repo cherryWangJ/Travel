@@ -8,18 +8,24 @@
         </div>
         <router-link to="/city">
             <div class="header-right">
-                {{this.$store.state.city}}<span class="iconfont right-icon">&#xe64a;</span>
+                {{this.cururentCity}}<span class="iconfont right-icon">&#xe64a;</span>
             </div>
         </router-link>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
       icon: '  \ue632 输入城市/景点/游玩主题'
     }
+  },
+  computed: {
+      ...mapState({
+          cururentCity: 'city'
+      })
   }
 }
 </script>
@@ -53,7 +59,10 @@ input::-webkit-input-placeholder {
     color: #cccccc;
 }
 .header-right {
-    width: 1.24rem;
+    overflow: hidden;
+    position: relative;
+    min-width: 1.04rem;
+    padding: 0 .1rem;
     float: right;
     text-align: center;
     color: #ffffff;

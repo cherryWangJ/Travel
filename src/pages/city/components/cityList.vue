@@ -5,14 +5,14 @@
                 <div class="area-title border-topbottom">当前城市</div>
                 <div class="area-button">
                     <div class="button-wrapper">
-                        <div class="button" v-text="this.$store.state.city"></div>
+                        <div class="button" v-text="this.currentCity"></div>
                     </div>
                 </div>
             </div>
             <div class="hot-city">
                 <div class="area-title border-topbottom">热门城市</div>
                 <div class="area-button">
-                    <div class="button-wrapper" v-for="item in hotcities" :key="item.id" @click= "handleCityClick(item.name)">
+                    <div class="button-wrapper" v-for="item in hotcities" :key="item.id" @click="handleCityClick(item.name)">
                         <div class="button" v-text="item.name"></div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
             <div class="city-table" v-for="(item,key,index) in allcities" :key="index" :ref="key">
                 <div class="area-title border-topbottom" v-text="key"></div>
                 <div class="table-list">
-                    <div class="list-item border-bottom" v-for="innerItem in item" :key="innerItem.id" v-text="innerItem.name">
+                    <div class="list-item border-bottom" v-for="innerItem in item" :key="innerItem.id" v-text="innerItem.name" @click="handleCityClick(innerItem.name)">
                         </div>
                 </div>
             </div>
@@ -30,6 +30,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapActions } from 'vuex'
 export default {
     props: {
         hotcities: Array,
@@ -41,13 +42,21 @@ export default {
         return {
         }
     },
-    mounted () {
-        this.scroll = new Bscroll(this.$refs.wrapper)
-    },
     methods: {
+        ...mapActions(['changeCity']),
         handleCityClick (city) {
-            console.log(city)
+            this.changeCity(city)
+            this.$router.push('/')
         }
+    },
+    computed: {
+      ...mapState({
+          currentCity: 'city'
+      })
+    },
+    mounted () {
+        this.scroll = new Bscroll(this.$refs.wrapper, { mouseWheel: true, click: true, tap: true })
+        // 使用了better-scroll，默认它会阻止touch事件,设置click=true
     },
     watch: {
         letter () {

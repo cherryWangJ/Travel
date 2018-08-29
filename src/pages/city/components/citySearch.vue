@@ -5,7 +5,7 @@
         </div>
         <div class="city-list" ref="search" v-show="keyword">
             <ul>
-                <li class="list-item border-bottom" v-for="item in list" :key="item.id" v-text="item.name"></li>
+                <li class="list-item border-bottom" v-for="item in list" :key="item.id" v-text="item.name" @click="handleCityClick(item.name)"></li>
                 <li class="list-item border-bottom" v-show="hasShow">没有找到匹配城市</li>
             </ul>
         </div>
@@ -14,6 +14,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapActions } from 'vuex'
 export default {
     name: 'serach',
     props: {
@@ -27,8 +28,16 @@ export default {
             timer: null
         }
     },
+    methods: {
+         ...mapActions(['changeCity']),
+        handleCityClick (city) {
+            this.changeCity(city)
+            this.$router.push('/')
+        }
+    },
     mounted () {
-      this.scroll = new Bscroll(this.$refs.search)
+      this.scroll = new Bscroll(this.$refs.search, { mouseWheel: true, click: true, tap: true })
+        // 使用了better-scroll，默认它会阻止touch事件,设置click=true
     },
     computed: {
         hasShow () {
