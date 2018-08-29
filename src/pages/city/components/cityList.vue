@@ -5,14 +5,14 @@
                 <div class="area-title border-topbottom">当前城市</div>
                 <div class="area-button">
                     <div class="button-wrapper">
-                        <div class="button">北京</div>
+                        <div class="button" v-text="this.$store.state.city"></div>
                     </div>
                 </div>
             </div>
             <div class="hot-city">
                 <div class="area-title border-topbottom">热门城市</div>
                 <div class="area-button">
-                    <div class="button-wrapper" v-for="item in hotcities" :key="item.id">
+                    <div class="button-wrapper" v-for="item in hotcities" :key="item.id" @click= "handleCityClick(item.name)">
                         <div class="button" v-text="item.name"></div>
                     </div>
                 </div>
@@ -43,6 +43,11 @@ export default {
     },
     mounted () {
         this.scroll = new Bscroll(this.$refs.wrapper)
+    },
+    methods: {
+        handleCityClick (city) {
+            console.log(city)
+        }
     },
     watch: {
         letter () {
