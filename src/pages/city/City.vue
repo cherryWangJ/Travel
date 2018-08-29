@@ -2,8 +2,8 @@
     <div>
         <city-header></city-header>
         <city-search></city-search>
-        <city-list :hotcities="hotCities" :allcities="allCities"></city-list>
-        <city-table :tablelist="allCities"></city-table>
+        <city-list :hotcities="hotCities" :allcities="allCities" :letter="letter"></city-list>
+        <city-table :tablelist="allCities" @change="handleLetterChange"></city-table>
     </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
     data () {
         return {
             hotCities: [],
-            allCities: {}
+            allCities: {},
+            letter: ''
         }
     },
     mounted () {
@@ -40,6 +41,9 @@ export default {
                          alert('网络错误，请等待加载')
                     }
                 })
+        },
+        handleLetterChange (val) {
+            this.letter = val
         }
     },
     components: {
