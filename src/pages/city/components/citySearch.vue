@@ -1,11 +1,19 @@
 <template>
     <div>
         <div class="city-search">
-            <input v-model="keyword" class="iconfont search-input" type="text" :placeholder="showIcon" />
+            <input 
+                v-model="keyword" 
+                class="iconfont search-input" 
+                type="text" 
+                :placeholder="showIcon" />
         </div>
         <div class="city-list" ref="search" v-show="keyword">
             <ul>
-                <li class="list-item border-bottom" v-for="item in list" :key="item.id" v-text="item.name" @click="handleCityClick(item.name)"></li>
+                <li class="list-item border-bottom" 
+                    v-for="item in list" 
+                    :key="item.id" 
+                    v-text="item.name" 
+                    @click="handleCityClick(item.name)"></li>
                 <li class="list-item border-bottom" v-show="hasShow">没有找到匹配城市</li>
             </ul>
         </div>

@@ -1,7 +1,9 @@
 <template>
     <div class="week">
         <div class="week-title">周末去哪儿</div>
-            <ul class="week-content border-bottom" v-for="item in weeklist" :key="item.id">
+            <ul class="week-content border-bottom" 
+                v-for="item in weeklist" 
+                :key="item.id">
                 <li class="week-item">
                     <div class="item-img">
                         <img :src="item.imgUrl" alt="漂流勇进"/>

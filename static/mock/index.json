@@ -89,12 +89,14 @@
         {
                 "id": "0003",
                 "imgUrl": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
+                "introduce": "故宫",
                 "price": 20,
                 "place": "东城区"
         },
         {
                 "id": "0004",
                 "imgUrl": "http://img1.qunarzz.com/sight/p0/201308/08/41150dacc0e3a0c8c8d65eac.jpg_200x200_c62292e9.jpg",
+                "introduce": "北京动物园",
                 "price": 39.9,
                 "place": "西城区"
         }

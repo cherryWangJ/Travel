@@ -1,4 +1,4 @@
-let constantCity = '上海'
+let constantCity = '北京'
 try {
     if (localStorage.city) {
         constantCity = localStorage.city

@@ -1,7 +1,14 @@
 <template>
     <div class="city-table">
         <ul class="table-item">
-            <li class="item" v-for="item in letters" :key="item" :ref="item" v-text="item" @click="handleLetter" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd"></li>
+            <li class="item" 
+                v-for="item in letters" 
+                :key="item" :ref="item" 
+                v-text="item" 
+                @click="handleLetter" 
+                @touchstart="handleTouchStart" 
+                @touchmove="handleTouchMove" 
+                @touchend="handleTouchEnd"></li>
         </ul>
     </div>
 </template>

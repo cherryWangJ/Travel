@@ -12,15 +12,25 @@
             <div class="hot-city">
                 <div class="area-title border-topbottom">热门城市</div>
                 <div class="area-button">
-                    <div class="button-wrapper" v-for="item in hotcities" :key="item.id" @click="handleCityClick(item.name)">
+                    <div class="button-wrapper" 
+                        v-for="item in hotcities" 
+                        :key="item.id" 
+                        @click="handleCityClick(item.name)">
                         <div class="button" v-text="item.name"></div>
                     </div>
                 </div>
             </div>
-            <div class="city-table" v-for="(item,key,index) in allcities" :key="index" :ref="key">
+            <div class="city-table" 
+                v-for="(item,key,index) in allcities" 
+                :key="index" 
+                :ref="key">
                 <div class="area-title border-topbottom" v-text="key"></div>
                 <div class="table-list">
-                    <div class="list-item border-bottom" v-for="innerItem in item" :key="innerItem.id" v-text="innerItem.name" @click="handleCityClick(innerItem.name)">
+                    <div class="list-item border-bottom" 
+                        v-for="innerItem in item" 
+                        :key="innerItem.id" 
+                        v-text="innerItem.name" 
+                        @click="handleCityClick(innerItem.name)">
                         </div>
                 </div>
             </div>

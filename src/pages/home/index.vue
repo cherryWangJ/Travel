@@ -15,10 +15,12 @@ import Recommend from '@/pages/components/Recommend'
 import Week from '@/pages/components/Week'
 
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'index',
   data () {
     return {
+      lastCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -26,11 +28,21 @@ export default {
     }
   },
   mounted () {
+    this.lastCity = this.city
     this.getMessage()
+  },
+  activated () {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getMessage()
+    }
+  },
+  computed: {
+    ...mapState(['city'])
   },
   methods: {
     getMessage () {
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(res => {
           res = res.data
           if (res.flag && res.data) {

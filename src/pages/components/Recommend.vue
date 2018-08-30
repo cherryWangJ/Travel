@@ -1,18 +1,22 @@
 <template>
     <div class="recommend">
         <div class="recommend-title">热门推荐</div>
-        <ul class="recommend-content border-bottom" v-for="item in recommendlist" :key="item.id">
-            <li class="content-item">
-                <div class="item-img">
-                    <img class="imgWrapper" :src="item.imgUrl" alt="金海湖风景区"/>
-                </div>
-                <div class="item-text">
-                    <p class="text-introduce" v-text="item.introduce"></p>
-                    <p class="text-price">￥{{item.price}}<span>起</span></p>
-                    <p class="text-place" v-text="item.place"></p>
-                </div>
-            </li>
-        </ul>
+            <ul class="recommend-content border-bottom" 
+                v-for="item in recommendlist" 
+                :key="item.id">
+                <router-link :to="{ name: 'Detail', params: { id: item.id }}">
+                    <li class="content-item">
+                        <div class="item-img">
+                            <img class="imgWrapper" :src="item.imgUrl" alt="金海湖风景区"/>
+                        </div>
+                        <div class="item-text">
+                            <p class="text-introduce" v-text="item.introduce"></p>
+                            <p class="text-price">￥{{item.price}}<span>起</span></p>
+                            <p class="text-place" v-text="item.place"></p>
+                        </div>
+                    </li>
+                </router-link>
+            </ul>
     </div>
 </template>
 
