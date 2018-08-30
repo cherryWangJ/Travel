@@ -8,15 +8,18 @@
             <div class="info-number"><span class="iconfont banner-icon">&#xe650;</span>5</div>
         </div>
     </div>
-    <common-gallary :imgs="imgList" 
-                    v-show="showGallary"
-                    @close="closeGallary"
-                    ></common-gallary>
+    <fade-animation>
+        <common-gallary :imgs="imgList" 
+                        v-show="showGallary"
+                        @close="closeGallary">
+        </common-gallary>
+    </fade-animation>
 </div>
 </template>
 
 <script>
 import commonGallary from '@/common/gallary/Gallary'
+import fadeAnimation from '@/common/fade/fadeAnimation'
 export default {
     data () {
         return {
@@ -54,7 +57,8 @@ export default {
         }
     },
     components: {
-        commonGallary
+        commonGallary,
+        fadeAnimation
     }
 }
 </script>

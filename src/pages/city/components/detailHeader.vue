@@ -25,6 +25,10 @@ export default {
     activated () {
         window.addEventListener('scroll', this.handleScroll)
     },
+    deactivated () {
+        // 解绑全局对象
+        window.removeEventListener('scroll', this.handleScroll)  
+    },
     computed: {
         showScroll () {
             return (!this.showHeader)
@@ -65,6 +69,7 @@ export default {
     font-size: .4rem;
 }
 .scroll-header {
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;
