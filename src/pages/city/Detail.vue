@@ -1,9 +1,11 @@
 <template>
     <div class="detail">
-        <detail-banner></detail-banner>
+        <detail-banner :bannerlist="bannerList"
+                        :imglist="imgList"
+        ></detail-banner>
         <detail-header></detail-header>
         <div class="detail-test">
-            <detail-list :list="list"></detail-list>
+            <detail-list :list="List"></detail-list>
         </div>
     </div>
 </template>
@@ -12,44 +14,53 @@
 import detailBanner from '@/pages/city/components/detailBanner'
 import detailHeader from '@/pages/city/components/detailHeader'
 import detailList from '@/pages/city/components/detailList'
+
+import axios from 'axios'
 export default {
     name: 'detail',
+    props: ['id'],
     data () {
         return {
-            list: [
-                {
-                    id: '0001',
-                    title: '成人票',
-                    children: [
-                        {
-                            id: '000001',
-                            title: '成人三馆套票',
-                            children: [
-                                {
-                                    id: '00000001',
-                                    title: '成人三馆套票    -   售于南三门'
+            imgId: '',
+            bannerList: [],
+            imgList: [],
+            List: []
+        }
+    },
+    mounted () {
+        this.getMessage()
+    },
+    activated () {
+        if (this.imgId) {
+        this.getMessage()
+        }
+    },
+    methods: {
+        getMessage () {
+            axios.get('/api/index.json?id=' + this.id)
+                .then(res => {
+                    this.imgId = this.id
+                    res = res.data
+                    if (res.flag && res.data) {
+                        let recommond = res.data.recommendList
+                        for (let key in recommond) {
+                            if (recommond[key].allImg) {
+                                let img = recommond[key].allImg
+                                for (let i in img) {
+                                    if (this.id === img[i].id) {
+                                        this.bannerList = img[i].imgTotal.bannerList
+                                        this.imgList = img[i].imgTotal.imgList
+                                    }
                                 }
-                            ]
-                        },
-                        {
-                            id: '000002',
-                            title: '成人五馆套票'
+                            }
                         }
-                    ]
-                },
-                {
-                    id: '0002',
-                    title: '学生票'
-                },
-                {
-                    id: '0003',
-                    title: '儿童票'
-                },
-                {
-                    id: '0004',
-                    title: '特惠票'
-                }
-            ]
+                    }
+                })
+                .catch(err => {
+                    if (err) {
+                          alert('网络延迟，请等待加载')
+                    }
+                })
         }
     },
     components: {

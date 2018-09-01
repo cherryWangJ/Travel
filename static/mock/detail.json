@@ -1,0 +1,61 @@
+{
+    "flag": "true",
+    "data": {
+        "imgList": [
+            {
+                "id": "0001",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1609/7a/7ae8ee7831836095a3.water.jpg_r_800x800_0e2783ce.jpg"
+            },
+             {
+                "id": "0002",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/a5/a533f2c93fbe3227a3.img.jpg_r_800x800_df5e46a5.jpg"
+            },
+             {
+                "id": "0003",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/21/212f9125ce6c5e7f5a.img.jpg_r_800x800_a9c922ca.jpg"
+            },
+            {
+                "id": "0004",
+                "imgUrl": "http://img1.qunarzz.com/sight/p57/201211/05/781c02f4e80fbebf93835fbb.jpg_r_800x800_9050b86b.jpg"
+            },
+            {
+                "id": "0005",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1507/e1/799c3460ad742d3a632371e81df6e7c4.water.jpg_r_800x800_5b9bb62a.jpg"
+            }
+            ],
+            "list": [
+                {
+                    "id": "0001",
+                    "title": "成人票",
+                    "children": [
+                        {
+                            "id": "000001",
+                            "title": "成人三馆套票",
+                            "children": [
+                                {
+                                    "id": "00000001",
+                                    "title": "成人三馆套票    -   售于南三门"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "000002",
+                            "title": "成人五馆套票"
+                        }
+                    ]
+                },
+                {
+                    "id": "0002",
+                    "title": "学生票"
+                },
+                {
+                    "id": "0003",
+                    "title": "儿童票"
+                },
+                {
+                    "id": "0004",
+                    "title": "特惠票"
+                }
+            ]
+    }
+}

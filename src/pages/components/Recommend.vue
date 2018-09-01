@@ -81,7 +81,11 @@ export default {
 .text-place {
     line-height: .4rem;
     font-size: .28rem;
-    color: #333;
+    max-width: 1.2rem;
+    color: #333; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     position: absolute;
     right: .24rem;
     bottom: .12rem;

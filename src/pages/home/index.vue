@@ -44,11 +44,16 @@ export default {
     getMessage () {
       axios.get('/api/index.json?city=' + this.city)
         .then(res => {
+          console.log(this.city)
           res = res.data
           if (res.flag && res.data) {
             this.swiperList = res.data.swiperList
             this.iconList = res.data.iconList
-            this.recommendList = res.data.recommendList
+            for (let key in res.data.recommendList) {
+              if (this.city === res.data.recommendList[key].city) {
+                this.recommendList = res.data.recommendList[key].cityList
+              }
+            }
             this.weekList = res.data.weekList
           }
            })
