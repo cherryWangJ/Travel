@@ -7,8 +7,10 @@
             <input class="iconfont header-input" type="text" :placeholder="icon">
         </div>
         <router-link to="/city">
-            <div class="header-right">
-                {{this.cururentCity}}<span class="iconfont right-icon">&#xe64a;</span>
+            <div class="header-right-parent">
+                <div class="header-right">
+                    {{this.cururentCity}}<span class="iconfont right-icon">&#xe64a;</span>
+                </div>
             </div>
         </router-link>
     </div>
@@ -52,7 +54,7 @@ export default {
 .header-content .header-input {
     margin-left: .04rem;
     height: .64rem;
-    width: 5.2rem;
+    width: 5.1rem;
     border-radius: .1rem;
 }
 input::-webkit-input-placeholder {
@@ -60,14 +62,17 @@ input::-webkit-input-placeholder {
 }
 .header-right {
     overflow: hidden;
-    position: relative;
-    min-width: 1.04rem;
-    padding: 0 .1rem;
-    float: right;
+    min-width: 1.24rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .26rem;
+    padding: 0 .02rem;
     text-align: center;
     color: #ffffff;
 }
 .header-right .right-icon {
-    font-size: .24rem;
+    font-size: .2rem;
+    margin-left: .04rem;
 }
 </style>

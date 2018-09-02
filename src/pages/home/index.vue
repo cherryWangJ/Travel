@@ -44,7 +44,6 @@ export default {
     getMessage () {
       axios.get('/api/index.json?city=' + this.city)
         .then(res => {
-          console.log(this.city)
           res = res.data
           if (res.flag && res.data) {
             this.swiperList = res.data.swiperList
