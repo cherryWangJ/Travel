@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store/index'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Mint from 'mint-ui'
 import 'swiper/dist/css/swiper.css'
 import './assets/styles/reset.css'
 import './assets/styles/border.css'
@@ -12,6 +13,7 @@ import './assets/styles/iconfont.css'
 
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
+Vue.use(Mint)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
